@@ -31,7 +31,7 @@ post '/host' do
 end
 
 post '/winner' do
-  eligible_entrants = Entrant.get(:eligible => true)
+  eligible_entrants = Entrant.all(:eligible => true)
   @winner = eligible_entrants[rand(eligible_entrants.count-1)]
   builder :winner
 end
