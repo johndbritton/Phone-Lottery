@@ -4,6 +4,7 @@ require 'builder'
 require 'rest_client'
 require 'dm-core'
 require 'dm-postgres-adapter'
+require 'dm-migrations'
 require 'dm-validations'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
