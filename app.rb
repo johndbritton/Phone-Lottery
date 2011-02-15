@@ -39,15 +39,11 @@ post '/winner' do
     @winner.save
     builder :winner
   else
-    redirect '/none'
+    builder :none
   end
 end
 
 post '/clear' do
   DataMapper.auto_migrate!
   builder :cleared
-end
-
-post '/none' do
-  builder :none
 end
