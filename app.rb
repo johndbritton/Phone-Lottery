@@ -6,23 +6,20 @@ require 'dm-core'
 require 'dm-postgres-adapter'
 require 'dm-validations'
 
-DataMapper.setup(:default, ENV['DATABASE_URL'])
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
 
 class Entrant
   include DataMapper::Resource
 
+  property :id, Serial
   property :number, String, :required => true
 
   validates_uniqueness_of :number
 end
 
-helpers do
-  def add_entrant(number)
-    Entrant.create(:number => number)
-  end
-end
+DataMapper.auto_upgrade!
 
 post '/voice' do
-  add_entrant(params['From'])
+  Entrant.create(:number => params['From'])
   builder :welcome
 end
