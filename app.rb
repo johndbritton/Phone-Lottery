@@ -2,6 +2,9 @@ require 'rubygems'
 require 'sinatra'
 require 'builder'
 require 'rest_client'
+require 'dm-core'
+require 'dm-pgsql-adapter'
+require 'dm-validations'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'])
 
