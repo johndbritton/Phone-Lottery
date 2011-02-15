@@ -14,14 +14,24 @@ class Entrant
 
   property :id, Serial
   property :number, String, :required => true
+  property :eligible, Boolean, :default => true
 
   validates_uniqueness_of :number
 end
 
 DataMapper.auto_upgrade!
 
-post '/voice' do
-  puts params[:From]
+post '/entrant' do
   Entrant.create(:number => params[:From])
-  builder :welcome
+  builder :entrant
+end
+
+post '/host' do
+  builder :host
+end
+
+post '/winner' do
+  eligible_entrants = Entrant.get(:eligible => true)
+  @winner = eligible_entrants[rand(eligible_entrants.count-1)]
+  builder :winner
 end
