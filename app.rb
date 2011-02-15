@@ -43,7 +43,7 @@ post '/winner' do
 end
 
 post '/clear' do
-  DataMapper.auto_migrate!
+  Entrant.all(:eligible => true).destroy
   builder :cleared
 end
 
