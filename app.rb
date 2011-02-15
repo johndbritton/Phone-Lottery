@@ -48,6 +48,6 @@ post '/clear' do
   builder :cleared
 end
 
-post '/none'
+post '/none' do
   builder :none
 end
