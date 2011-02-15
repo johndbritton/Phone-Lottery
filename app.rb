@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'sinatra'
 require 'builder'
-require 'rest_client'
 require 'dm-core'
 require 'dm-postgres-adapter'
 require 'dm-migrations'
@@ -46,4 +45,8 @@ end
 post '/clear' do
   DataMapper.auto_migrate!
   builder :cleared
+end
+
+get '/counter' do
+  @counter = Entrant.count
 end
