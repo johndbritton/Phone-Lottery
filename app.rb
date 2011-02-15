@@ -21,6 +21,6 @@ end
 DataMapper.auto_upgrade!
 
 post '/voice' do
-  Entrant.create(:number => params['From'])
+  Entrant.create(:number => params[:From])
   builder :welcome
 end
