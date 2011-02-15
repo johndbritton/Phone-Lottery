@@ -11,7 +11,7 @@ DataMapper.setup(:default, ENV['DATABASE_URL'])
 class Entrant
   include DataMapper::Resource
 
-  property :number, String, :required => True
+  property :number, String, :required => true
 
   validates_uniqueness_of :number
 end
