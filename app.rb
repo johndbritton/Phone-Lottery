@@ -22,6 +22,6 @@ helpers do
 end
 
 post '/voice' do
-  params['From']
+  add_entrant(params['From'])
   builder :welcome
 end
