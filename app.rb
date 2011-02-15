@@ -18,9 +18,7 @@ end
 
 helpers do
   def add_entrant(number)
-    e = Entrant.new
-    e.number = number
-    e.save
+    Entrant.create(:number => number)
   end
 end
 
