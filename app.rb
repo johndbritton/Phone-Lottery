@@ -3,6 +3,6 @@ require 'sinatra'
 require 'builder'
 require 'rest_client'
 
-post 'voice' do
+post '/voice' do
   builder :welcome
 end
