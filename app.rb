@@ -32,6 +32,13 @@ end
 
 post '/winner' do
   eligible_entrants = Entrant.all(:eligible => true)
-  @winner = eligible_entrants[rand(eligible_entrants.count-1)]
+  @winner = eligible_entrants[rand(eligible_entrants.count)]
+  @winner.eligible = false
+  @winner.save
   builder :winner
+end
+
+post '/clear' do
+  DataMapper.auto_migrate!
+  builder :cleared
 end
