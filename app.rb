@@ -33,7 +33,7 @@ end
 post '/winner' do
   eligible_entrants = Entrant.all(:eligible => true)
   eligible_entrants_count = eligible_entrants.count
-  unless eligible_entrnats_count < 1 do
+  unless eligible_entrnats_count < 1 then
     @winner = eligible_entrants[rand()]
     @winner.eligible = false
     @winner.save
