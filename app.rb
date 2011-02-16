@@ -46,9 +46,12 @@ post '/clear' do
   if params[:Digits] == '9'
     Entrant.all(:eligible => true).destroy
     builder :cleared
+  else
+    builder :host
   end
 end
 
-get '/counter' do
-  @counter = Entrant.count
+get '/count' do
+  @count = Entrant.count
+  haml :count
 end
