@@ -43,8 +43,10 @@ post '/winner' do
 end
 
 post '/clear' do
-  Entrant.all(:eligible => true).destroy
-  builder :cleared
+  if params[:Digits] == '9'
+    Entrant.all(:eligible => true).destroy
+    builder :cleared
+  end
 end
 
 get '/counter' do
