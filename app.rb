@@ -56,6 +56,6 @@ get '/count' do
   haml :count
 end
 
-get '/none' do
+post '/none' do
   builder :none
 end
