@@ -55,3 +55,7 @@ get '/count' do
   @count = Entrant.count
   haml :count
 end
+
+get '/none' do
+  builder :none
+end
